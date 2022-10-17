@@ -1,0 +1,42 @@
+[
+    {
+        "idProduct": "7e36b068-24ce-4788-80b1-a3bf405cabfe",
+        "nameProduct": "Kit",
+        "descriptionProduct": "With your Squid kit, your vehicule will be unique and visible.Our kits include two stickers for the side doors and a Squeegee to put them on.Choose the size that best suits your needs, and let us guide you through the available options.All our car stickers are finished with a glossy UV laminate for thebest durability",
+        "prixProduct": "49",
+        "tagPrdouct": "Become outstanding",
+        "photosProduit": "",
+        "review":20,
+        "sizes":["1","2","3","4","5"],
+        "cuts":["1","2","3"],
+        "extras":["1","2","3"],
+        "designs":["1","2","3"]
+    },
+    {
+        "idProduct": "1d4daa55-86b6-4fe5-b7d4-10f6e0fdee04",
+        "nameProduct": "Flexi",
+        "descriptionProduct": "With your FelxiSquid, you can dispose of your advertising at will. During the week you can give visibility to your company and during the weekend you can find your car without any advertising.Thanks to its four suction cups, you get a maximum hold.Two sizes are available.",
+        "prixProduct": "159",
+        "tagPrdouct": "Movable as you",
+        "photosProduit": "",
+        "review":20,
+        "sizes":["6","7"],
+        "designs":["3"],
+        "cuts":[],
+        "extras":[]
+    },
+    {
+        "idProduct": "e91dfb17-3647-436f-a617-a506ef76e88b",
+        "nameProduct": "Rear",
+        "descriptionProduct": "With your Rear Squid your rear window will be in your company colors.At every red light, stop sign or parking lot you will catch people's eyes.The One Way system allows you to see from the inside to the outside without any worries.Easy to install, 3 sizes are available including one that covers the entire window",
+        "prixProduct": "49",
+        "tagPrdouct": "Movable as you",
+        "photosProduit": "",
+        "review":20,
+        "sizes":["8","9"],
+        "designs":["3"],
+        "cuts":[],
+        "extras":[]
+    }
+]
+

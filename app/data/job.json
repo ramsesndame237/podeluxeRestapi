@@ -1,0 +1,50 @@
+[{
+        "id": 1,
+        "article_bail": 1,
+        "etat": "True",
+        "numero": 1,
+        "libelle": "Le bailleur loue par les présentes au preneur qui accepte les lieux ci-après décrits à l'article 2, situé au quartier Mvan à  usage exclusif d'habitation.",
+        "valeur": "False"
+    },
+    {
+        "id": 2,
+        "article_bail": 1,
+        "etat": "True",
+        "numero": 2,
+        "libelle": "Ils ne pourront être utilisé même temporairement à d'autres usages que celui ainsi arrêté sous peine de résiliation de plein droit de bail, suivi d'un délaissement immédiat à la première demande du bailleur .",
+        "valeur": "False"
+    },
+    {
+        "id": 3,
+        "article_bail": 2,
+        "etat": "True",
+        "numero": 1,
+        "libelle": "Les locaux objet du présent bail se présentent ainsi qu'il suit :",
+        "valeur": "False"
+    },
+    {
+        "id": 4,
+        "article_bail": 2,
+        "etat": "True",
+        "numero": 2,
+        "libelle": "il n'est pas fait plus ample description des lieux loués, le preneur déclarant les connaître parfaitement pour les avoir vu, visité, et accepté tels quels, avant conclusion du présent contrat",
+        "valeur": "False"
+    },
+    {
+        "id": 5,
+        "article_bail": 2,
+        "etat": "True",
+        "numero": 3,
+        "libelle": "A défaut d'état de lieux ci-dessus, le preneur reconnait qu'il sera réputé avoir occupé les lieu en parfait état.",
+        "valeur": "False"
+    },
+    {
+        "id": 6,
+        "article_bail": 3,
+        "etat": "True",
+        "numero": 1,
+        "libelle": "Le présent bail est inclus pour une durée ferme et définitive d'un (1) an? Sauf si les parties en disposent autrement",
+        "valeur": "False"
+    }
+]
+
