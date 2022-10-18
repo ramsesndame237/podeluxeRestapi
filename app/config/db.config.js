@@ -1,22 +1,9 @@
-// module.exports = {
-//   HOST: "localhost",
-//   USER: "u371743826_adsquid",
-//   PASSWORD: "Dev@123456789",
-//   DB: "u371743826_adsquid",
-//   dialect: "mysql",
-//   pool: {
-//     max: 5,
-//     min: 0,
-//     acquire: 30000,
-//     idle: 10000
-//   }
-// };
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "",
-  DB: "adsquid",
-  dialect: "mysql",
+  HOST: "postgresql-innov.alwaysdata.net",
+  USER: "innov",
+  PASSWORD: "QVdYvinrR7i@dLA",
+  DB: "innov_podeluxe",
+  dialect: "postgres",
   pool: {
     max: 5,
     min: 0,
@@ -24,3 +11,16 @@ module.exports = {
     idle: 10000
   }
 };
+// module.exports = {
+//   HOST: "localhost",
+//   USER: "postgres",
+//   PASSWORD: "root2022",
+//   DB: "podeluxe",
+//   dialect: "postgres",
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000
+//   }
+// };
