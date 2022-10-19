@@ -50,13 +50,13 @@ exports.findAll = (req, res) => {
     Product.findAll({ where: condition })
       .then( async  (data) => {
 
-        const review = await db.review.count({col:"idProduct",where:{idProduct :data.idProduct}})
+        // const review = await db.review.count({col:"idProduct",where:{idProduct :data.idProduct}})
 
-        data.forEach(element => {
+        // data.forEach(element => {
 
-          element.review = review
+        //   element.review = review
           
-        });
+        // });
         res.send(data);
       })
       .catch(err => {
