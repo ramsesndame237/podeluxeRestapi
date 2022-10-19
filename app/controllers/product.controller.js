@@ -44,8 +44,10 @@ exports.create = (req, res) => {
 
 // Retrieve all Products from the database.
 exports.findAll = (req, res) => {
+  const name = req.query.name;
+  var condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null;
   
-    Product.findAll()
+    Product.findAll({ where: condition })
       .then( async  (data) => {
 
         const review = await db.review.count({col:"idProduct",where:{idProduct :data.idProduct}})
