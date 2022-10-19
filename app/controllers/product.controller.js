@@ -44,23 +44,17 @@ exports.create = (req, res) => {
 
 // Retrieve all Products from the database.
 exports.findAll = (req, res) => {
-    const idProduct = req.query.idProduct;
-    var condition = idProduct ? { idProduct} : null;
   
-    Product.findAll({ where: condition })
+    Product.findAll()
       .then( async  (data) => {
 
-        const review = await db.review.count({col:"idProduct",where:{idProduct :idProduct}})
+        const review = await db.review.count({col:"idProduct",where:{idProduct :data.idProduct}})
 
         data.forEach(element => {
 
           element.review = review
           
         });
-
-        
-
-
         res.send(data);
       })
       .catch(err => {

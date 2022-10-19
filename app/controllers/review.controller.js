@@ -39,10 +39,10 @@ exports.create = (req, res) => {
 
 // Retrieve all Reviews from the database.
 exports.findAll = (req, res) => {
-    const idReview = req.query.idReview;
-    var condition = idReview ? { idReview} : null;
+    // const idReview = req.query.idReview;
+    // var condition = idReview ? { idReview} : null;
   
-    Review.findAll({ where: condition })
+    Review.findAll()
       .then(data => {
         res.send(data);
       })
