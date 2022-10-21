@@ -19,7 +19,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
       },
       country: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING,allowNull:true
     },
     city: {
       type: Sequelize.STRING

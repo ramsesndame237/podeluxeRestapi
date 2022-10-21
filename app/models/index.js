@@ -31,6 +31,7 @@ db.photo=require("../models/photos.model.js")(sequelize,Sequelize);
 db.client = require("../models/client.model.js")(sequelize,Sequelize)
 db.product = require("../models/product.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
 db.review = require("../models/review.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
+db.transaction = require("../models/transaction.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
 
 
 

@@ -1,13 +1,13 @@
 
 
 const db = require("../models");
-const Product = db.product;
+const Transaction = db.transaction;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Product
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.name || !req.body.price) {
+    if (!req.body.name || !req.body.priceCommande) {
       res.status(400).send({
         message: "Les données fournis sont incomplet!"
       });
@@ -15,22 +15,22 @@ exports.create = (req, res) => {
     }
   
     // Create a Product
-    const product = {
-        name:req.body.name,
-        description:req.body.description,
-        dimension:req.body.dimension,
-        composition:req.body.composition,
-        review:req.body.review,
-        imageUrl:req.body.imageUrl,
-        price:req.body.price,
-        stockQuantity:req.body.stockQuantity,
-        inStockQuantity:req.body.inStockQuantity,
-        promotionPrice:req.body.promotionPrice,
-        rating:req.body.rating || 2
+    const transaction = {
+        name: req.body.name,
+          lastName: req.body.lastName,
+          companyName: req.body.companyName,
+          tel1: req.body.tel1,
+            country: req.body.country,
+          city: req.body.city,
+          state: req.body.state,
+          postcode: req.body.postcode,
+          email: req.body.email,
+          priceCommande:req.body.priceCommande,
+          transation_status:req.body.transation_status
     };
   
     // Save product in the database
-    Product.create(product)
+    Transaction.create(transaction)
         .then(data =>  {
            res.status(200).send(data);
       })
@@ -47,7 +47,7 @@ exports.findAll = (req, res) => {
   const name = req.query.name;
   var condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null;
   
-    Product.findAll({ where: condition })
+  Transaction.findAll({ where: condition })
       .then( async  (data) => {
 
         // const review = await db.review.count({col:"idProduct",where:{idProduct :data.idProduct}})
@@ -69,27 +69,27 @@ exports.findAll = (req, res) => {
 
 // Find a single product with an id
 exports.findOne = (req, res) => {
-    const idProduct = req.params.idProduct;
+    const idTransaction = req.params.idTransaction;
   
-    Product.findByPk(idProduct)
+    Transaction.findByPk(idTransaction)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving product with id=" + idProduct
+          message: "Error retrieving product with id=" + idTransaction
         });
       });
   };
 
 // Update a product by the id in the request
 exports.update = (req, res) => {
-    const idProduct = req.params.idProduct;
+    const idTransaction = req.params.idTransaction;
 
-    console.log(idProduct)
+    console.log(idTransaction)
   
-    Product.update(req.body, {
-      where: { idProduct: idProduct }
+    Transaction.update(req.body, {
+      where: { idTransaction: idTransaction }
     })
       .then(num => {
         if (num == 1) {
@@ -111,10 +111,10 @@ exports.update = (req, res) => {
 
 // Delete a Product with the specified id in the request
 exports.delete = (req, res) => {
-    const idProduct = req.params.idProduct;
+    const idTransaction = req.params.idTransaction;
   
-    Product.destroy({
-      where: { idProduct: idProduct }
+    Transaction.destroy({
+      where: { idTransaction: idTransaction }
     })
       .then(num => {
         if (num == 1) {
@@ -123,20 +123,20 @@ exports.delete = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot delete Product with id=${idProduct}. Maybe Product was not found!`
+            message: `Cannot delete Product with id=${idTransaction}. Maybe Product was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Product with id=" + idProduct
+          message: "Could not delete Product with id=" + idTransaction
         });
       });
   };
 
 // Delete all Products from the database.
 exports.deleteAll = (req, res) => {
-    Product.destroy({
+    Transaction.destroy({
       where: {},
       truncate: false
     })
@@ -151,7 +151,3 @@ exports.deleteAll = (req, res) => {
       });
   };
 
-// // Find all published Products
-// exports.findAllPublished = (req, res) => {
-  
-// };
