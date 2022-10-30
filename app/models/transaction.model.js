@@ -39,6 +39,9 @@ module.exports = (sequelize, Sequelize,DataTypes) => {
       }, 
       transation_status:{
         type:Sequelize.STRING
+      },
+      command_status:{
+        type:Sequelize.STRING
       }
     });
   

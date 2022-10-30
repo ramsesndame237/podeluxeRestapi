@@ -32,6 +32,9 @@ db.client = require("../models/client.model.js")(sequelize,Sequelize)
 db.product = require("../models/product.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
 db.review = require("../models/review.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
 db.transaction = require("../models/transaction.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
+db.faq = require("../models/faq.model.js")(sequelize,Sequelize)
+db.politique = require("../models/politique.model.js")(sequelize,Sequelize)
+db.bannerPub = require("../models/banner_pub.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
 
 
 
@@ -65,6 +68,17 @@ db.review.belongsTo(db.product, {
    allowNull: true,
    name: 'idProduct'
  }
+})
+
+db.transaction.belongsToMany(db.product,{
+  through:"product_commandes",
+  foreignKey:'idTransaction',
+  otherKey:'idProduct'
+})
+db.product.belongsToMany(db.transaction,{
+  through:"product_commandes",
+  foreignKey:'idProduct',
+  otherKey:'idTransaction'
 })
 
 db.ROLES = ["client", "admin", "moderator"];

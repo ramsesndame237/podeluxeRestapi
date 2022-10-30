@@ -16,17 +16,18 @@ exports.create = (req, res) => {
   
     // Create a Product
     const transaction = {
-        name: req.body.name,
+          name: req.body.name,
           lastName: req.body.lastName,
           companyName: req.body.companyName,
           tel1: req.body.tel1,
-            country: req.body.country,
+          country: req.body.country,
           city: req.body.city,
           state: req.body.state,
           postcode: req.body.postcode,
           email: req.body.email,
           priceCommande:req.body.priceCommande,
-          transation_status:req.body.transation_status
+          transation_status:req.body.transation_status,
+          command_status:'A Livrer'
     };
   
     // Save product in the database

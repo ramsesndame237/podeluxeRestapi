@@ -10,7 +10,7 @@ module.exports = (sequelize, Sequelize,DataTypes) => {
         type: Sequelize.STRING
       },
       description:{
-        type:Sequelize.STRING
+        type:Sequelize.TEXT
       },
       dimension:{
         allowNull:true,
@@ -18,7 +18,7 @@ module.exports = (sequelize, Sequelize,DataTypes) => {
       },
       composition:{
         allowNull:true,
-        type:Sequelize.STRING
+        type:Sequelize.STRING 
       },
       imageUrl:{
         type:DataTypes.TEXT
