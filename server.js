@@ -59,6 +59,7 @@ require("./app/routes/review.routes")(app)
 require("./app/routes/transaction.routes")(app)
 require("./app/routes/faq.routes")(app)
 require("./app/routes/banner_pub.routes")(app)
+require("./app/routes/file_upload.routes")(app)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8800;

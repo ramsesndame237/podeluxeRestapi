@@ -1,10 +1,10 @@
 module.exports ={
-    "host": "mail.infomaniak.com",
-    "port": 587,
-    "username": "infosylve@ias-tech.fr",
-    "password": "Ea9O2UhxcbyS",
+    "host": "mail.podeluxeluxuryskin.com",
+    "port": 465,
+    "username": "podeluxeluxuryskin@podeluxeluxuryskin.com",
+    "password": "Tx-nlsRyifBM",
     "from": {
-        "address": "infosylve@ias-tech.fr",
-        "name": "ADSQUID"
+        "address": "podeluxe2021@gmail.com",
+        "name": "PODELUXE"
     }
 }

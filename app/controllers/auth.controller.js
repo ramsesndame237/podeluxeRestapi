@@ -37,7 +37,6 @@ exports.signup = (req, res) => {
           }
         }).then(roles => {
           user.setRoles(roles).then(() => {
-            console.log(mdp)
            emailer().to(req.body.email).subject("ADSQUID").send("account", { password: mdp, email: req.body.email})
             res.send({ message: "User registered successfully!",user });
           });

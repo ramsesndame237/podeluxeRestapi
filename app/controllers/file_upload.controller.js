@@ -1,45 +1,61 @@
+const uploadFile = require("../middleware/upload");
 
-const ftp = require("basic-ftp") 
+const upload = async (req, res) => {
+  try {
+    await uploadFile(req, res);
 
-exports.uploadFile =  async (req, res) => {
-    const client = new ftp.Client()
-    client.ftp.verbose = true
-
-    try {
-        await client.access({
-            host: "ftp.podeluxeluxuryskin.com",
-            user: "images_produits@podeluxeluxuryskin.com",
-            password: "PODELUXELUXURYSKIN",
-            secure: true,
-            port:'21'
-        })
-        console.log(await client.access())
-        await client.uploadFrom("/home/c1973108c/public_html/podeluxeluxuryskin.com/images_produits", "/home/c1973108c/public_html/podeluxeluxuryskin.com/images_produits")
-        await client.downloadTo("README_COPY.md", "README_FTP.md")
+    if (req.file == undefined) {
+      return res.status(400).send({ message: "Please upload a file!" });
     }
-    catch(err) {
-        console.log(err)
+
+    res.status(200).send({
+      message: "Uploaded the file successfully: " + req.file.originalname,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+    });
+  }
+};
+
+const getListFiles = (req, res) => {
+  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+
+  fs.readdir(directoryPath, function (err, files) {
+    if (err) {
+      res.status(500).send({
+        message: "Unable to scan files!",
+      });
     }
-    client.close()
 
+    let fileInfos = [];
 
+    files.forEach((file) => {
+      fileInfos.push({
+        name: file,
+        url: baseUrl + file,
+      });
+    });
 
+    res.status(200).send(fileInfos);
+  });
+};
 
-    // console.log(req.files);  
-    // if (req.files === null) {
-    //   return res.status(400).json({ msg: "No file was uploaded" }); //no file uploaded
-    // }
-    // const file = req.files.file;
-    // // here we access the temporary file path
-    // ftp.upload(file.tempFilePath, "/test", function (err) {
-    //   if (err) {
-    //     console.log(err);
-    //     return res.status(500).send(err);
-    //   } else {
-    //     console.log("finished:", res);
-    //     res.json({ fileName: file.name, filePath: `/upload/${file.name}` });
-    //   }
-    //   ftp.close();
-    // });
-  
+const download = (req, res) => {
+  const fileName = req.params.name;
+  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+
+  res.download(directoryPath + fileName, fileName, (err) => {
+    if (err) {
+      res.status(500).send({
+        message: "Could not download the file. " + err,
+      });
+    }
+  });
+};
+
+module.exports = {
+  upload,
+  getListFiles,
+  download,
 };

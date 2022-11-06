@@ -2,9 +2,9 @@ module.exports = app => {
     const file_upload = require("../controllers/file_upload.controller.js");
   
     var router = require("express").Router();
-  
-    // Create a new clients
-    router.post("/", file_upload.uploadFile);
+    router.post("/", file_upload.upload);
+    router.get("/files", file_upload.getListFiles);
+    router.get("/files/:name", file_upload.download);
 
     app.use('/api/upload', router);
   };
