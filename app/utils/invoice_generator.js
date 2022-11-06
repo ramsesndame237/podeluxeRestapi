@@ -76,7 +76,7 @@ module.exports = () => {
                 if(file == name){   
                     fileInfos.push({
                       name: file,
-                      url: "http://localhost:8800/files/" + file,
+                      url: "https://podeluxe.herokuapp.com/api//files/" + file,
                     });
                     emailer().to(dataSender.clients.address).subject("Facture").send("invoice", { link: fileInfos[0].url, name: dataSender.clients.company})
                 }else{
