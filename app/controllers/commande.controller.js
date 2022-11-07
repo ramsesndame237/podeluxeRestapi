@@ -41,8 +41,8 @@ exports.create = (req, res) => {
               [Op.or]: req.body.productsId
             }
           }
-        }).then((products) => {
-          transaction.setProducts(products).then(() => {
+        }).then( (products) => {
+          transaction.setProducts(products).then(async() => {
             let dataTosend = {
               product:req.body.products,
               clients:{
@@ -56,8 +56,11 @@ exports.create = (req, res) => {
                 address: req.body.email,
               }
             }
-            invoice().invoice_generator(dataTosend)
-            res.status(200).send({message:'transaction enregistrer avec succès ',data:transaction});
+           await invoice().invoice_generator(dataTosend).then((response) =>{
+            console.log(response)
+             res.status(200).send({message:'transaction enregistrer avec succès ',data:transaction});
+             
+           })
           })
 
         })
