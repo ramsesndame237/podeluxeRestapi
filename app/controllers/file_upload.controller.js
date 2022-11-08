@@ -43,7 +43,7 @@ const getListFiles = (req, res) => {
 
 const download = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+  const directoryPath = __dirname + "/resources/static/assets/uploads/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {
