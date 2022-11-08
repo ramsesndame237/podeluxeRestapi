@@ -37,6 +37,7 @@ const Role = db.role;
 const Size = db.size;
 
 db.sequelize.sync(
+  // initial()
    
 );
 

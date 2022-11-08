@@ -56,11 +56,8 @@ exports.create = (req, res) => {
                 address: req.body.email,
               }
             }
-           await invoice().invoice_generator(dataTosend).then((response) =>{
-            console.log(response)
-             res.status(200).send({message:'transaction enregistrer avec succès ',data:transaction});
-             
-           })
+          const invoicement =  await invoice().invoice_generator(dataTosend)
+          return res.status(invoicement.status).send(invoicement)
           })
 
         })

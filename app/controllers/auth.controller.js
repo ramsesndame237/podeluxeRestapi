@@ -25,7 +25,7 @@ exports.signup = (req, res) => {
     postcode: req.body.postcode,
     brand: req.body.brand,
     model: req.body.model,
-    years: req.body.years
+    years: req.body.years 
   })
     .then(user => {
       if (req.body.roles) {
@@ -37,14 +37,14 @@ exports.signup = (req, res) => {
           }
         }).then(roles => {
           user.setRoles(roles).then(() => {
-           emailer().to(req.body.email).subject("ADSQUID").send("account", { password: mdp, email: req.body.email})
+           emailer().to(req.body.email).subject("PODELUXE").send("account", { password: mdp, email: req.body.email})
             res.send({ message: "User registered successfully!",user });
           });
         });
       } else {
         // user role = 1
         user.setRoles([1]).then(() => {
-          emailer().to(req.body.email).subject("ADSQUID").send("account", { password: mdp, email: req.body.email})
+          emailer().to(req.body.email).subject("PODELUXE").send("account", { password: mdp, email: req.body.email})
           res.send({ message: "User registered successfully!",user });
         });
       }
