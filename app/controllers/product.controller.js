@@ -26,6 +26,7 @@ exports.create = (req, res) => {
         stockQuantity:req.body.stockQuantity,
         inStockQuantity:req.body.inStockQuantity,
         promotionPrice:req.body.promotionPrice,
+        idSubCategory:req.body.idSubCategory,
         rating:req.body.rating || 2
     };
   

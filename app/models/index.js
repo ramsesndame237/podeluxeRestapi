@@ -27,14 +27,16 @@ db.sequelize = sequelize;
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
 db.refreshToken = require("../models/refreshToken.model.js")(sequelize, Sequelize);
-db.photo=require("../models/photos.model.js")(sequelize,Sequelize);
-db.client = require("../models/client.model.js")(sequelize,Sequelize)
-db.product = require("../models/product.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
-db.review = require("../models/review.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
-db.transaction = require("../models/transaction.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
-db.faq = require("../models/faq.model.js")(sequelize,Sequelize)
-db.politique = require("../models/politique.model.js")(sequelize,Sequelize)
-db.bannerPub = require("../models/banner_pub.model.js")(sequelize,Sequelize,Sequelize.DataTypes)
+db.photo = require("../models/photos.model.js")(sequelize, Sequelize);
+db.client = require("../models/client.model.js")(sequelize, Sequelize)
+db.product = require("../models/product.model.js")(sequelize, Sequelize, Sequelize.DataTypes)
+db.review = require("../models/review.model.js")(sequelize, Sequelize, Sequelize.DataTypes)
+db.transaction = require("../models/transaction.model.js")(sequelize, Sequelize, Sequelize.DataTypes)
+db.faq = require("../models/faq.model.js")(sequelize, Sequelize)
+db.politique = require("../models/politique.model.js")(sequelize, Sequelize)
+db.category = require("../models/category.model.js")(sequelize, Sequelize)
+db.subcategory = require("../models/sub_category.model.js")(sequelize, Sequelize)
+db.bannerPub = require("../models/banner_pub.model.js")(sequelize, Sequelize, Sequelize.DataTypes)
 
 
 
@@ -46,39 +48,65 @@ db.role.belongsToMany(db.user, {
 
 db.user.belongsToMany(db.role, {
   through: "user_roles",
-  foreignKey: "userId", 
+  foreignKey: "userId",
   otherKey: "roleId"
 });
 
 db.refreshToken.belongsTo(db.user, {
   foreignKey: 'userId', targetKey: 'idUser'
 });
-db.user.hasOne(db.refreshToken, { 
+db.user.hasOne(db.refreshToken, {
   foreignKey: 'userId', targetKey: 'idUser'
 });
 
 db.product.hasMany(db.review, {
   foreignKey: {
-   allowNull: true,
-   name: 'idProduct' 
- }
+    allowNull: true,
+    name: 'idProduct'
+  }
 })
 db.review.belongsTo(db.product, {
- foreignKey: {
-   allowNull: true,
-   name: 'idProduct'
- }
+  foreignKey: {
+    allowNull: true,
+    name: 'idProduct'
+  }
 })
 
-db.transaction.belongsToMany(db.product,{
-  through:"product_commandes",
-  foreignKey:'idTransaction',
-  otherKey:'idProduct'
+db.category.hasMany(db.subcategory, {
+  foreignKey: {
+    allowNull: true,
+    name: 'idCategory'
+  }
 })
-db.product.belongsToMany(db.transaction,{
-  through:"product_commandes",
-  foreignKey:'idProduct',
-  otherKey:'idTransaction'
+db.subcategory.belongsTo(db.category,{
+  foreignKey:{
+    allowNull:true,
+    name:'idCategory'
+  }
+})
+
+db.subcategory.hasMany(db.product, {
+  foreignKey: {
+    allowNull: true,
+    name: 'idSubCategory'
+  }
+})
+db.product.belongsTo(db.subcategory, {
+  foreignKey: {
+    allowNull: true,
+    name: 'idSubCategory'
+  }
+})
+
+db.transaction.belongsToMany(db.product, {
+  through: "product_commandes",
+  foreignKey: 'idTransaction',
+  otherKey: 'idProduct'
+})
+db.product.belongsToMany(db.transaction, {
+  through: "product_commandes",
+  foreignKey: 'idProduct',
+  otherKey: 'idTransaction'
 })
 
 db.ROLES = ["client", "admin", "moderator"];
