@@ -1,4 +1,18 @@
 [
-
+    {
+        "idCategory":"7e36b068-24ce-4788-80b1-a3bf405cabfe",
+        "name":"Visage",
+        "code":"Face"
+    },
+    {
+        "idCategory":"1d4daa55-86b6-4fe5-b7d4-10f6e0fdee04",
+        "name":"Corps",
+        "code":"Body"
+    },
+    {
+        "idCategory":"e91dfb17-3647-436f-a617-a506ef76e88b",
+        "name":"NUTRICOSMETHIQUE",
+        "code":"NUTRICOS"
+    }
 ]
 

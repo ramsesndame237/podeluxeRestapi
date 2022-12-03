@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "ramses",
-    "password": "Noneluvic2020",
-    "database": "ramses_adsquid",
-    "host": "mysql-ramses.alwaysdata.net",
-    "dialect": "mysql",
+    "username": "postgres",
+    "password": "root2022",
+    "database": "podeluxe",
+    "host": "localhost",
+    "dialect": "postgres",
      "pool": {
       "max": 5,
       "min": 0,

@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "migrate": "sequelize db:migrate",
-    "migrate:undo": "sequelize db:migrate:undo",
-    "dev": "nodemon server.js"
+    "start": "concurrently --kill-others \"npm run migrate\" \"node server.js \"",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "dev": "concurrently --kill-others \"npm run migrate\" \"nodemon server.js\""
   },
   "keywords": [
     "node.js",
@@ -43,5 +43,8 @@
     "sequelize": "^6.9.0",
     "socket.io": "^4.3.2",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }
