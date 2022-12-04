@@ -12,12 +12,12 @@ const http = require('http').Server(app)
 const corsOptions = {
   origin: "*"
 };
-const io = socket(http)
+// const io = socket(http)
 const Op = Sequelize.Op
 
 app.use((req, res, next) => {
   req.Op = Op
-  res.io = io
+  // res.io = io
   next()
 });
 

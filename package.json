@@ -41,7 +41,7 @@
     "pg-hstore": "^2.3.4",
     "php-in-js": "^1.0.1",
     "sequelize": "^6.9.0",
-    "socket.io": "^4.3.2",
+    // "socket.io": "^4.3.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
