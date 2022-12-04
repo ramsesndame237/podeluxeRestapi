@@ -1,10 +1,10 @@
 
 {
   "development": {
-    "username": "postgres",
-    "password": "root2022",
-    "database": "podeluxe",
-    "host": "localhost",
+    "username": "innov",
+    "password": "QVdYvinrR7i@dLA",
+    "database": "innov_podeluxe",
+    "host": "postgresql-innov.alwaysdata.net",
     "dialect": "postgres",
      "pool": {
       "max": 5,
@@ -27,11 +27,11 @@
     }
   },
   "production": {
-    "username": "ramses",
-    "password": "Noneluvic2020",
+    "username": "innov",
+    "password": "QVdYvinrR7i@dLA",
     "database": "ramses_adsquid",
-    "host": "mysql-ramses.alwaysdata.net",
-    "dialect": "mysql",
+    "host": "postgresql-innov.alwaysdata.net",
+    "dialect": "postgres",
      "pool": {
       "max": 5,
       "min": 0,
