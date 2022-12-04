@@ -1,10 +1,10 @@
 
 {
   "development": {
-    "username": "innov",
-    "password": "QVdYvinrR7i@dLA",
-    "database": "innov_podeluxe",
-    "host": "postgresql-innov.alwaysdata.net",
+    "username": "postgres",
+    "password": "root2022",
+    "database": "podeluxe",
+    "host": "localhost",
     "dialect": "postgres",
      "pool": {
       "max": 5,
