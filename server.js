@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const socket = require('socket.io')
 const Sequelize = require('sequelize')
 const fileUpload = require("express-fileupload");
 
