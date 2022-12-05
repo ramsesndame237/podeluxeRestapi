@@ -17,6 +17,7 @@ exports.create = (req, res) => {
     // Create a Politique
     const politique = {
         blocks:req.body.blocks,
+        type_justicy:req.body.type_justicy
     };
   
     // Save Politique in the database

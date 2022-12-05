@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Politique = sequelize.define("politiques_retour", {
+    const PolitiqueRetour = sequelize.define("politiques_retour", {
       idPolitiqueRetour: {
         allowNull: false,
         primaryKey: true,
@@ -8,13 +8,10 @@ module.exports = (sequelize, Sequelize) => {
       },
       blocks: {
         type: Sequelize.TEXT, 
-        // get: function() {
-        //     return JSON.parse(this.getDataValue('myArrayField'));
-        // }, 
-        // set: function(val) {
-        //     return this.setDataValue('myArrayField', JSON.stringify(val));
-        // }
       },
+      type_justicy:{
+        type:Sequelize.STRING
+      }
      
     });
   

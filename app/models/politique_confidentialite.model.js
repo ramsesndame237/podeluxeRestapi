@@ -9,6 +9,9 @@ module.exports = (sequelize, Sequelize) => {
       blocks: {
         type: Sequelize.TEXT, 
       },
+      type_justicy:{
+        type:Sequelize.STRING
+      }
      
     });
   
