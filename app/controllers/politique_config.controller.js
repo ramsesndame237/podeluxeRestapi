@@ -1,7 +1,7 @@
 
 
 const db = require("../models");
-const Politique = db.politique;
+const PolitiqueConfig = db.politiqueConfig;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Politique
@@ -20,7 +20,7 @@ exports.create = (req, res) => {
     };
   
     // Save Politique in the database
-    Politique.create(politique)
+    PolitiqueConfig.create(politique)
         .then(data =>  {
            res.status(200).send(data);
       })
@@ -37,7 +37,7 @@ exports.findAll = (req, res) => {
     // const idPolitique = req.query.idPolitique;
     // var condition = idPolitique ? { idPolitique} : null;
   
-    Politique.findAll()
+    PolitiqueConfig.findAll()
       .then(data => {
         res.send(data);
       })
@@ -53,7 +53,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const idPolitique = req.params.idPolitique;
   
-    Politique.findByPk(idPolitique)
+    PolitiqueConfig.findByPk(idPolitique)
       .then(data => {
         res.send(data);
       })
@@ -68,7 +68,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
     const idPolitique = req.params.idPolitique;
   
-    Politique.update(req.body, {
+    PolitiqueConfig.update(req.body, {
       where: { id: idPolitique }
     })
       .then(num => {
@@ -93,7 +93,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const idPolitique = req.params.idPolitique;
   
-    Politique.destroy({
+    PolitiqueConfig.destroy({
       where: { idPolitique: idPolitique }
     })
       .then(num => {
@@ -116,7 +116,7 @@ exports.delete = (req, res) => {
 
 // Delete all Politiques from the database.
 exports.deleteAll = (req, res) => {
-    Politique.destroy({
+    PolitiqueConfig.destroy({
       where: {},
       truncate: false
     })
