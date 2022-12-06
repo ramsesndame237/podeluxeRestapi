@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     const PolitiqueConfig = sequelize.define("politiques_config", {
-      idPolitiqueConfig: {
+      uuid: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,

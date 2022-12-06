@@ -35,8 +35,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Politiques from the database.
 exports.findAll = (req, res) => {
-    // const idPolitique = req.query.idPolitique;
-    // var condition = idPolitique ? { idPolitique} : null;
+    // const uuid = req.query.uuid;
+    // var condition = uuid ? { uuid} : null;
   
     Politique.findAll()
       .then(data => {
@@ -52,25 +52,25 @@ exports.findAll = (req, res) => {
 
 // Find a single Politique with an id
 exports.findOne = (req, res) => {
-    const idPolitique = req.params.idPolitique;
+    const uuid = req.params.uuid;
   
-    Politique.findByPk(idPolitique)
+    Politique.findByPk(uuid)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Politique with id=" + idPolitique
+          message: "Error retrieving Politique with id=" + uuid
         });
       });
   };
 
 // Update a Politique by the id in the request
 exports.update = (req, res) => {
-    const idPolitique = req.params.idPolitique;
+    const uuid = req.params.uuid;
   
     Politique.update(req.body, {
-      where: { id: idPolitique }
+      where: { uuid: uuid }
     })
       .then(num => {
         if (num == 1) {
@@ -79,23 +79,23 @@ exports.update = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot update Politique with id=${idPolitique}. Maybe Politique was not found or req.body is empty!`
+            message: `Cannot update Politique with id=${uuid}. Maybe Politique was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Politique with id=" + idPolitique
+          message: "Error updating Politique with id=" + uuid
         });
       });
   };
 
 // Delete a Politique with the specified id in the request
 exports.delete = (req, res) => {
-    const idPolitique = req.params.idPolitique;
+    const uuid = req.params.uuid;
   
     Politique.destroy({
-      where: { idPolitique: idPolitique }
+      where: { uuid: uuid }
     })
       .then(num => {
         if (num == 1) {
@@ -104,13 +104,13 @@ exports.delete = (req, res) => {
           });
         } else {
           res.send({
-            message: `Cannot delete Politique with id=${idPolitique}. Maybe Politique was not found!`
+            message: `Cannot delete Politique with id=${uuid}. Maybe Politique was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Politique with id=" + idPolitique
+          message: "Could not delete Politique with id=" + uuid
         });
       });
   };

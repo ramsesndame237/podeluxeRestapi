@@ -13,13 +13,13 @@ module.exports = app => {
     // router.get("/published", politiques_config.findAllPublished);
   
     // Retrieve a single politiques_config with id
-    router.get("/:idPolitiqueConfig", politiques_config.findOne);
+    router.get("/:uuid", politiques_config.findOne);
   
     // Update a politiques_config with id
-    router.put("/:idPolitiqueConfig", politiques_config.update);
+    router.put("/:uuid", politiques_config.update);
   
     // Delete a politiques_config with id
-    router.delete("/:idPolitiqueConfig", politiques_config.delete);
+    router.delete("/:uuid", politiques_config.delete);
   
     // Delete all politiques_config
     router.delete("/", politiques_config.deleteAll);
