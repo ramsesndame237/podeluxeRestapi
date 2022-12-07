@@ -70,7 +70,7 @@ exports.update = (req, res) => {
     const idFaq = req.params.idFaq;
   
     Faq.update(req.body, {
-      where: { id: idFaq }
+      where: { idFaq: idFaq }
     })
       .then(num => {
         if (num == 1) {
