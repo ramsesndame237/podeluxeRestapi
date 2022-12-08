@@ -23,4 +23,4 @@ module.exports = app => {
     router.delete("/", confidentialite.deleteAll);
   
     app.use('/api/confidentialite', router);
-  };
+  }; 
