@@ -22,5 +22,5 @@ module.exports = app => {
     // Delete all confidentialite
     router.delete("/", confidentialite.deleteAll);
   
-    app.use('/api/politiqueConfig', router);
+    app.use('/api/confidentialite', router);
   };
