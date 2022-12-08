@@ -35,6 +35,7 @@ db.transaction = require("../models/transaction.model.js")(sequelize, Sequelize,
 db.faq = require("../models/faq.model.js")(sequelize, Sequelize)
 db.politique = require("../models/politique_retour.model.js")(sequelize, Sequelize)
 db.politiqueConfig = require("../models/politique_confidentialite.model.js")(sequelize, Sequelize)
+db.politiqueLivraison = require("../models/politique_livraison.model.js")(sequelize, Sequelize)
 db.category = require("../models/category.model.js")(sequelize, Sequelize)
 db.subcategory = require("../models/sub_category.model.js")(sequelize, Sequelize)
 db.bannerPub = require("../models/banner_pub.model.js")(sequelize, Sequelize, Sequelize.DataTypes)

@@ -64,6 +64,7 @@ require("./app/routes/category.routes")(app)
 require("./app/routes/subcategory.routes")(app)
 require("./app/routes/politique.routes")(app)
 require("./app/routes/politique_config.routes")(app)
+require("./app/routes/politique_livraison.routes")(app)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8800;
