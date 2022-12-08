@@ -3,24 +3,24 @@ module.exports = app => {
   
     var router = require("express").Router();
   
-    // Create a new politiques_config
-    router.post("/", politiques_config.create);
+    // Create a new confidentialite
+    router.post("/", confidentialite.create);
   
-    // Retrieve all politiques_config
-    router.get("/", politiques_config.findAll);
+    // Retrieve all confidentialite
+    router.get("/", confidentialite.findAll);
   
   
-    // Retrieve a single politiques_config with id
-    router.get("/:uuid", politiques_config.findOne);
+    // Retrieve a single confidentialite with id
+    router.get("/:uuid", confidentialite.findOne);
   
-    // Update a politiques_config with id
-    router.put("/:uuid", politiques_config.update);
+    // Update a confidentialite with id
+    router.put("/:uuid", confidentialite.update);
   
-    // Delete a politiques_config with id
-    router.delete("/:uuid", politiques_config.delete);
+    // Delete a confidentialite with id
+    router.delete("/:uuid", confidentialite.delete);
   
-    // Delete all politiques_config
-    router.delete("/", politiques_config.deleteAll);
+    // Delete all confidentialite
+    router.delete("/", confidentialite.deleteAll);
   
     app.use('/api/politiqueConfig', router);
   };
