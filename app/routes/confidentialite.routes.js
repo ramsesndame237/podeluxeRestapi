@@ -1,5 +1,5 @@
 module.exports = app => {
-    const politiques_config = require("../controllers/politique_config.controller.js");
+    const confidentialite = require("../controllers/politique_config.controller.js");
   
     var router = require("express").Router();
   

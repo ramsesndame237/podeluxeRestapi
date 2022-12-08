@@ -1,7 +1,7 @@
 module.exports = app => {
     const politiques = require("../controllers/politique_livraison.controller.js");
   
-    var router = require("express").Router();
+    let router = require("express").Router();
   
     // Create a new politiques
     router.post("/", politiques.create);
