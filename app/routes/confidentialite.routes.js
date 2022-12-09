@@ -9,7 +9,7 @@ module.exports = app => {
     // Retrieve all confidentialite
     router.get("/", confidentialite.findAll);
   
-  
+   
     // Retrieve a single confidentialite with id
     router.get("/:uuid", confidentialite.findOne);
   

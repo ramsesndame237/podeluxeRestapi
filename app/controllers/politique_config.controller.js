@@ -70,7 +70,7 @@ exports.update = (req, res) => {
     const uuid = req.params.uuid;
   
     PolitiqueConfig.update(req.body, {
-      where: { id: uuid }
+      where: { uuid: uuid }
     })
       .then(num => {
         if (num == 1) {
