@@ -1,10 +1,10 @@
 
 
 const db = require("../models");
-const PolitiqueConfig = db.politiqueConfig;
+const About = db.about;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Politique
+// Create and Save a new About
 exports.create = (req, res) => {
     // Validate request
     if (!req.body.blocks && !req.body.type_justicy) {
@@ -14,14 +14,14 @@ exports.create = (req, res) => {
       return;
     }
   
-    // Create a Politique
-    const politique = {
+    // Create a About
+    const about = {
         blocks:req.body.blocks,
         type_justicy:req.body.type_justicy
     };
   
-    // Save Politique in the database
-    PolitiqueConfig.create(politique)
+    // Save About in the database
+    About.create(about)
         .then(data =>  {
            res.status(200).send(data);
       })
@@ -33,106 +33,98 @@ exports.create = (req, res) => {
       });
   };
 
-// Retrieve all Politiques from the database.
+// Retrieve all Abouts from the database.
 exports.findAll = (req, res) => {
-    // const uuid = req.query.uuid;
-    // var condition = uuid ? { uuid} : null;
-  
-    PolitiqueConfig.findAll()
+    About.findAll()
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving Politiques."
+            err.message || "Some error occurred while retrieving Abouts."
         });
       });
   };
 
-// Find a single Politique with an id
+// Find a single About with an id
 exports.findOne = (req, res) => {
     const uuid = req.params.uuid;
   
-    PolitiqueConfig.findByPk(uuid)
+    About.findByPk(uuid)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Politique with id=" + uuid
+          message: "Error retrieving About with id=" + uuid
         });
       });
   };
 
-// Update a Politique by the id in the request
+// Update a About by the id in the request
 exports.update = (req, res) => {
     const uuid = req.params.uuid;
   
-    PolitiqueConfig.update(req.body, {
+    About.update(req.body, {
       where: { uuid: uuid }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Politique was updated successfully."
+            message: "About was updated successfully."
           });
         } else {
           res.send({
-            message: `Cannot update Politique with id=${uuid}. Maybe Politique was not found or req.body is empty!`
+            message: `Cannot update About with id=${uuid}. Maybe About was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Politique with id=" + uuid
+          message: "Error updating About with id=" + uuid
         });
       });
   };
 
-// Delete a Politique with the specified id in the request
+// Delete a About with the specified id in the request
 exports.delete = (req, res) => {
     const uuid = req.params.uuid;
   
-    PolitiqueConfig.destroy({
+    About.destroy({
       where: { uuid: uuid }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Politique was deleted successfully!"
+            message: "About was deleted successfully!"
           });
         } else {
           res.send({
-            message: `Cannot delete Politique with id=${uuid}. Maybe Politique was not found!`
+            message: `Cannot delete About with id=${uuid}. Maybe About was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Politique with id=" + uuid
+          message: "Could not delete About with id=" + uuid
         });
       });
   };
 
-// Delete all Politiques from the database.
+// Delete all Abouts from the database.
 exports.deleteAll = (req, res) => {
-    PolitiqueConfig.destroy({
+    About.destroy({
       where: {},
       truncate: false
     })
       .then(nums => {
-        res.send({ message: `${nums} Politiques were deleted successfully!` });
+        res.send({ message: `${nums} Abouts were deleted successfully!` });
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while removing all Politiques."
+            err.message || "Some error occurred while removing all Abouts."
         });
       });
   };
-
-// // Find all published Politiques
-// exports.findAllPublished = (req, res) => {
-  
-// };

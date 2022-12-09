@@ -1,27 +1,27 @@
 
 
 const db = require("../models");
-const PolitiqueConfig = db.politiqueConfig;
+const Avis = db.avis;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Politique
+// Create and Save a new Avis
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.blocks && !req.body.type_justicy) {
+    if (!req.body.blocks && !req.body.time) {
       res.status(400).send({
         message: "Les données fournis sont incomplet!"
       });
       return;
     }
   
-    // Create a Politique
-    const politique = {
+    // Create a Avis
+    const avis = {
         blocks:req.body.blocks,
         type_justicy:req.body.type_justicy
     };
   
-    // Save Politique in the database
-    PolitiqueConfig.create(politique)
+    // Save Avis in the database
+    Avis.create(avis)
         .then(data =>  {
            res.status(200).send(data);
       })
@@ -33,106 +33,106 @@ exports.create = (req, res) => {
       });
   };
 
-// Retrieve all Politiques from the database.
+// Retrieve all Aviss from the database.
 exports.findAll = (req, res) => {
     // const uuid = req.query.uuid;
     // var condition = uuid ? { uuid} : null;
   
-    PolitiqueConfig.findAll()
+    Avis.findAll()
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving Politiques."
+            err.message || "Some error occurred while retrieving Aviss."
         });
       });
   };
 
-// Find a single Politique with an id
+// Find a single Avis with an id
 exports.findOne = (req, res) => {
     const uuid = req.params.uuid;
   
-    PolitiqueConfig.findByPk(uuid)
+    Avis.findByPk(uuid)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Politique with id=" + uuid
+          message: "Error retrieving Avis with id=" + uuid
         });
       });
   };
 
-// Update a Politique by the id in the request
+// Update a Avis by the id in the request
 exports.update = (req, res) => {
     const uuid = req.params.uuid;
   
-    PolitiqueConfig.update(req.body, {
+    Avis.update(req.body, {
       where: { uuid: uuid }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Politique was updated successfully."
+            message: "Avis was updated successfully."
           });
         } else {
           res.send({
-            message: `Cannot update Politique with id=${uuid}. Maybe Politique was not found or req.body is empty!`
+            message: `Cannot update Avis with id=${uuid}. Maybe Avis was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Politique with id=" + uuid
+          message: "Error updating Avis with id=" + uuid
         });
       });
   };
 
-// Delete a Politique with the specified id in the request
+// Delete a Avis with the specified id in the request
 exports.delete = (req, res) => {
     const uuid = req.params.uuid;
   
-    PolitiqueConfig.destroy({
+    Avis.destroy({
       where: { uuid: uuid }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Politique was deleted successfully!"
+            message: "Avis was deleted successfully!"
           });
         } else {
           res.send({
-            message: `Cannot delete Politique with id=${uuid}. Maybe Politique was not found!`
+            message: `Cannot delete Avis with id=${uuid}. Maybe Avis was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Politique with id=" + uuid
+          message: "Could not delete Avis with id=" + uuid
         });
       });
   };
 
-// Delete all Politiques from the database.
+// Delete all Aviss from the database.
 exports.deleteAll = (req, res) => {
-    PolitiqueConfig.destroy({
+    Avis.destroy({
       where: {},
       truncate: false
     })
       .then(nums => {
-        res.send({ message: `${nums} Politiques were deleted successfully!` });
+        res.send({ message: `${nums} Aviss were deleted successfully!` });
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while removing all Politiques."
+            err.message || "Some error occurred while removing all Aviss."
         });
       });
   };
 
-// // Find all published Politiques
+// // Find all published Aviss
 // exports.findAllPublished = (req, res) => {
   
 // };

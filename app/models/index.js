@@ -40,6 +40,8 @@ db.confidentialite = require("../models/confidentialite.model.js")(sequelize,Seq
 db.category = require("../models/category.model.js")(sequelize, Sequelize)
 db.subcategory = require("../models/sub_category.model.js")(sequelize, Sequelize)
 db.bannerPub = require("../models/banner_pub.model.js")(sequelize, Sequelize, Sequelize.DataTypes)
+db.about = require("../models/about.model.js")(sequelize,Sequelize)
+db.avis = require("../models/avis.model.js")(sequelize,Sequelize)
 
 
 
